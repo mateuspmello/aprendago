@@ -60,12 +60,43 @@ func main() {
 	//retornar uma funcao
 	k := retornafuncao()
 	p := k(3)
-	fmt.Println(p)
-	fmt.Println(retornafuncao()(3))
+	fmt.Println("retornar uma funcao:", p)
+	fmt.Println("retornar uma funcao: ", retornafuncao()(3))
 
 	//callback
 	t := somenteImpares(soma1, []int{50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60}...)
-	fmt.Println(t)
+	fmt.Println("callback: ", t)
+
+	//closures
+	a := i()
+	fmt.Println("closures a: ", a())
+	fmt.Println("closures a: ", a())
+	fmt.Println("closures a: ", a())
+
+	b := i()
+	fmt.Println("closures b:", b())
+	fmt.Println("closures b:", b())
+	fmt.Println("closures b:", b())
+
+	//recursividade
+	fmt.Println("fatorial de 4: ", fatorial(4))
+	fmt.Println("fatorial de 0: ", fatorial(0))
+
+}
+
+func fatorial(x int) int {
+	if x <= 1 {
+		return x
+	}
+	return x * fatorial(x-1)
+}
+
+func i() func() int {
+	x := 0
+	return func() int {
+		x++
+		return x
+	}
 }
 
 func soma1(x ...int) int {
