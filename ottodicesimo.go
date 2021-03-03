@@ -37,7 +37,6 @@ func main() {
 
 	wgg.Wait()
 
-	var mu sync.Mutex
 }
 
 func func1() {
