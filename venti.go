@@ -41,7 +41,9 @@ func main() {
 			nome:  "Mateus",
 			idade: 32,
 		}
+		fmt.Println(p.nome)
 		dizerAlgumaCoisa(&p)
+		fmt.Println(p.nome)
 		wg.Done()
 	}()
 
