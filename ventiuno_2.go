@@ -39,16 +39,16 @@ func recebe(p, i, c chan int) {
 
 	var wg sync.WaitGroup
 
+	wg.Add(1)
 	go func() {
-		wg.Add(1)
 		for v := range p {
 			c <- v
 		}
 		wg.Done()
 	}()
 
+	wg.Add(1)
 	go func() {
-		wg.Add(1)
 		for v := range i {
 			c <- v
 		}
